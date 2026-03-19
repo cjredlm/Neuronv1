@@ -1,0 +1,20 @@
+.liquid-ether-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Place behind content */
+  overflow: hidden;
+  touch-action: none;
+  pointer-events: none;
+}
+
+/* Ensure Three.js canvas doesn't block interactions */
+.liquid-ether-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
