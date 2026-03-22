@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuron - Diseño de Páginas Web Profesionales</title>
+    <meta name="description" content="Diseñamos sitios web modernos, rápidos y optimizados para celular para que tu negocio tenga una presencia profesional en internet.">
+    <!-- Fonts: League Spartan, Montserrat, Glacial Indifference -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=13">
+    
+    <!-- Mathematics for WebGL Sphere -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+    
+    <!-- Lenis Library for Smooth Scrolling -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ogl/dist/ogl.umd.js"></script>
+    <script src="LiquidEther.js?v=11"></script>
+</head>
+<body>
+    <!-- Interactive Background -->
+    <div id="liquid-ether-bg" class="liquid-ether-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="public/1.png" alt="Neuron Logo" class="logo-img">
+                <span class="logo-text">Neuron</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#impacto">Diferencias</a>
+                <a href="#ejemplos">Casos</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#faq">Preguntas</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#contacto" class="btn btn-accent">Empezar a diseñar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-container text-center">
+            <div class="badge-new">
+                <span class="pulse-dot"></span>
+                <span>Agenda abierta para nuevos proyectos</span>
+            </div>
+            <h1 class="hero-title">
+                Tu negocio merece una <br>
+                <span class="text-gradient">página web profesional.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Diseñamos sitios web modernos, rápidos y optimizados para celular para que tu negocio tenga una presencia profesional en internet.
+            </p>
+            <div class="hero-cta">
+                <a href="#contacto" class="btn btn-accent btn-lg">Solicitar mi sitio web</a>
+                <a href="#ejemplos" class="btn btn-primary btn-lg">Ver ejemplos</a>
+            </div>
+            
+            <div class="trust-elements">
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
+                    <span>Página web profesional</span>
+                </div>
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                    <span>Optimizado para celular</span>
+                </div>
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span>Formulario de contacto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Challenge-Solution Section -->
+    <section id="unified-section" class="unified-section">
+        <div class="container">
+            <!-- Premium Toggle Switcher -->
+            <div class="switch-container">
+                <div class="switch-pill glass-panel">
+                    <button id="btn-desafio" class="switch-btn active" data-target="state-desafio">El Desafío</button>
+                    <button id="btn-solucion" class="switch-btn" data-target="state-solucion">La Solución</button>
+                    <div class="switch-indicator"></div>
+                </div>
+            </div>
+
+            <!-- Content States Wrapper -->
+            <div class="states-wrapper">
+                <!-- Desafío State -->
+                <div id="state-desafio" class="state-pane active">
+                    <div class="grid md-grid-cols-2 gap-12 items-center">
+                        <div class="state-visual glass-panel">
+                            <img src="public/business_problem_professional.jpeg" alt="Empresario reflexionando" class="state-img">
+                            <div class="visual-overlay"></div>
+                        </div>
+                        <div class="state-content">
+                            <h2 class="section-title">El Desafío</h2>
+                            <h3 class="section-subtitle mb-4">Muchos negocios pierden clientes por no tener presencia en internet.</h3>
+                            <p class="text-large text-muted mb-6">
+                                Hoy la mayoría de las personas buscan en internet antes de contactar un negocio. Sin una web profesional, los clientes eligen a la competencia.
+                            </p>
+                            <div class="stat-grid grid grid-cols-2 gap-4">
+                                <div class="stat-item">
+                                    <span class="stat-number">81%</span>
+                                    <span class="stat-label">investigan online antes de comprar.</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">57%</span>
+                                    <span class="stat-label">rechazan webs mal diseñadas.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solución State -->
+                <div id="state-solucion" class="state-pane">
+                    <div class="grid md-grid-cols-2 gap-12 items-center">
+                        <div class="state-content">
+                            <h2 class="section-title text-blue">La Solución</h2>
+                            <h3 class="section-subtitle mb-4">Creamos páginas web que transmiten confianza total.</h3>
+                            <p class="text-large text-muted mb-6">Diseñamos sitios estratégicos construidos para convertir visitantes en clientes reales con tecnología de vanguardia.</p>
+                            <ul class="feature-list">
+                                <li>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Estrategia enfocada en resultados
+                                </li>
+                                <li>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Velocidad Carga Ultra-Rápida
+                                </li>
+                                <li>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Diseño Mobile-First Premium
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="state-visual glass-panel">
+                            <img src="public/business_solution_professional.jpeg" alt="Diseño web moderno" class="state-img">
+                            <div class="visual-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section: Interactive Flex Cards -->
+    <section id="beneficios" class="beneficios-interactive">
+        <div class="container--wide">
+            <div class="section-header text-center mb-16">
+                <span class="section-badge mb-4">Alto Impacto</span>
+                <h2 class="section-title">Beneficios Premium</h2>
+                <p class="section-subtitle">Diseñados no solo para participar, sino para dominar tu sector digital.</p>
+            </div>
+
+            <div class="flex-cards-container reveal-benefit">
+                
+                <!-- Card 1 -->
+                <div class="flex-card active" tabindex="0">
+                    <div class="flex-card-bg" style="background: linear-gradient(135deg, #0e1222 0%, #17203b 100%);"></div>
+                    <div class="flex-card-glow gradient-1"></div>
+                    
+                    <div class="flex-card-header">
+                        <div class="flex-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4 class="flex-card-title-vertical">Imagen de Élite</h4>
+                    </div>
+
+                    <div class="flex-card-content">
+                        <div class="flex-card-details">
+                            <div class="details-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3>Imagen de Élite</h3>
+                            <p>Tu marca merece un escaparate digital que inspire respeto y autoridad desde el primer segundo. Creamos diseños a medida, inmersivos y con un aura de absoluta exclusividad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flex-card" tabindex="0">
+                    <div class="flex-card-bg" style="background: linear-gradient(135deg, #11151a 0%, #15242b 100%);"></div>
+                    <div class="flex-card-glow gradient-2"></div>
+                    
+                    <div class="flex-card-header">
+                        <div class="flex-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        </div>
+                        <h4 class="flex-card-title-vertical">Velocidad Extrema</h4>
+                    </div>
+
+                    <div class="flex-card-content">
+                        <div class="flex-card-details">
+                            <div class="details-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                            </div>
+                            <h3>Velocidad Extrema</h3>
+                            <p>Tiempos de carga casi instantáneos para que nadie se quede atrás. Aplicamos optimizaciones de rendimiento a nivel de código y servidor para garantizar retención masiva.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flex-card" tabindex="0">
+                    <div class="flex-card-bg" style="background: linear-gradient(135deg, #150d1a 0%, #291230 100%);"></div>
+                    <div class="flex-card-glow gradient-3"></div>
+                    
+                    <div class="flex-card-header">
+                        <div class="flex-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h4 class="flex-card-title-vertical">Confianza Total</h4>
+                    </div>
+
+                    <div class="flex-card-content">
+                        <div class="flex-card-details">
+                            <div class="details-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            </div>
+                            <h3>Confianza Total</h3>
+                            <p>Seguridad blindada y profesionalismo certificado en cada interacción. Una arquitectura web sólida e inquebrantable que protege a tu negocio y tus usuarios 24/7.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flex-card" tabindex="0">
+                    <div class="flex-card-bg" style="background: linear-gradient(135deg, #0d1a15 0%, #122b1e 100%);"></div>
+                    <div class="flex-card-glow gradient-4"></div>
+                    
+                    <div class="flex-card-header">
+                        <div class="flex-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        </div>
+                        <h4 class="flex-card-title-vertical">Mobile First</h4>
+                    </div>
+
+                    <div class="flex-card-content">
+                        <div class="flex-card-details">
+                            <div class="details-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            </div>
+                            <h3>Experiencia Mobile First</h3>
+                            <p>El mundo se mueve en la mano. Tu negocio optimizado para una navegación móvil asombrosamente fluida e intuitiva con interfaces gestuales modernas.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso Section: The Connected Flow -->
+    <section id="proceso" class="section proceso-flow">
+        <div class="container">
+            <div class="section-header text-center mb-20">
+                <h2 class="section-title">Nuestra Metodología</h2>
+                <p class="section-subtitle">Un camino claro y transparente desde la idea inicial hasta el éxito digital.</p>
+            </div>
+
+            <div class="process-wrapper">
+                <!-- Desktop Connection Line -->
+                <div class="process-line-draw"></div>
+                
+                <div class="process-grid">
+                    <!-- Paso 1 -->
+                    <div class="process-step reveal-step" data-step="1">
+                        <div class="step-card-modern glass-panel">
+                            <span class="step-number-bg">01</span>
+                            <div class="step-icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <h4 class="step-title">Descubrimiento</h4>
+                            <p class="step-description">Analizamos tu negocio, objetivos y audiencia para trazar la mejor estrategia personalizada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="process-step reveal-step" data-step="2">
+                        <div class="step-card-modern glass-panel">
+                            <span class="step-number-bg">02</span>
+                            <div class="step-icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M7 11l5-5"></path></svg>
+                            </div>
+                            <h4 class="step-title">Diseño de Élite</h4>
+                            <p class="step-description">Creamos una interfaz visualmente impactante y centrada en la conversión y experiencia de usuario.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="process-step reveal-step" data-step="3">
+                        <div class="step-card-modern glass-panel">
+                            <span class="step-number-bg">03</span>
+                            <div class="step-icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h4 class="step-title">Desarrollo</h4>
+                            <p class="step-description">Programamos tu sitio con tecnología de vanguardia, optimizándolo para velocidad y buscadores.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="process-step reveal-step" data-step="4">
+                        <div class="step-card-modern glass-panel">
+                            <span class="step-number-bg">04</span>
+                            <div class="step-icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            </div>
+                            <h4 class="step-title">Lanzamiento</h4>
+                            <p class="step-description">Tu negocio despega. Publicamos y monitoreamos tu sitio para asegurar un crecimiento constante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Proyectos: Galería Circular 3D -->
+    <section id="ejemplos" class="ejemplos">
+        <div class="container text-center pt-10">
+            <div class="section-badge mb-4">Nuestros Proyectos</div>
+            <h2 class="mb-10 section-title">Casos de Éxito Digital</h2>
+            <div id="circular-gallery" class="gallery-3d-container"></div>
+        </div>
+    </section>
+
+    <!-- Qué Incluye Section: Human Focus -->
+    <section id="incluye" class="incluye-human">
+        <div class="container container-wide">
+            <div class="human-incluye-grid">
+                <!-- Visual Side -->
+                <div class="human-visual-side reveal-left">
+                    <div class="image-stack-modern">
+                        <img src="public/success_collaboration.png" alt="Éxito y Colaboración" class="main-human-img">
+                        <div class="floating-stat-card glass-panel">
+                            <span class="stat-num">+150</span>
+                            <span class="stat-label">Proyectos Exitosos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="human-content-side">
+                    <div class="section-badge mb-4">Todo lo que necesitas</div>
+                    <h2 class="mb-4">Tu éxito digital, <br><span class="text-gradient">sin complicaciones.</span></h2>
+                    <p class="text-muted mb-10 max-w-500">Nos encargamos de cada detalle técnico y creativo para que tú te enfoques en lo que realmente importa: hacer crecer tu negocio.</p>
+
+                    <div class="features-human-grid">
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Diseño de Élite</h4>
+                                <p>Interfaces únicas que capturan la esencia de tu marca.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Multi-Dispositivo</h4>
+                                <p>Tu web se verá impecable en celulares, tablets y PC.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>SEO Profesional</h4>
+                                <p>Optimizamos tu sitio para que aparezcas en los primeros resultados.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Hosting & Dominio</h4>
+                                <p>Configuración completa y segura para tu tranquilidad total.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Seguridad SSL</h4>
+                                <p>Certificado de seguridad incluido para proteger a tus clientes.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-human-card glass-panel reveal-item">
+                            <div class="feature-icon-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Soporte Neuron</h4>
+                                <p>Acompañamiento constante para que tu sitio nunca se detenga.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Antes y Después Section (El Impacto de una Web) -->
+    <section id="impacto" class="antes-despues">
+        <div class="container section-header text-center mb-12">
+            <h2 class="section-subtitle mx-auto text-muted mb-2">La diferencia entre no tener web y tener</h2>
+            <h2 class="section-title">presencia profesional</h2>
+        </div>
+        
+        <div class="container">
+            <div class="impacto-master-card">
+                <div class="impacto-grid">
+                    <!-- Columna Antes -->
+                    <div class="impacto-col column-antes">
+                        <div class="col-header">
+                            <h3>Antes</h3>
+                        </div>
+                        <ul class="comparison-list-modern">
+                            <li>
+                                <div class="icon-wrap icon-red">
+                                    <span class="x-mark">×</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                                </div>
+                                <span>Solo depender de redes sociales</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap icon-red">
+                                    <span class="x-mark">×</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </div>
+                                <span>Clientes no te encuentran en Google</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap icon-red">
+                                    <span class="x-mark">×</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                </div>
+                                <span>Pierdes oportunidades de venta</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna Después -->
+                    <div class="impacto-col column-despues">
+                        <div class="recommended-badge">RECOMENDADO</div>
+                        <div class="col-header">
+                            <h3 class="text-accent">Después</h3>
+                        </div>
+                        <ul class="comparison-list-modern">
+                            <li>
+                                <div class="icon-wrap icon-green">
+                                    <span class="check-mark">✓</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                </div>
+                                <span>Página web profesional de tu negocio</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap icon-green">
+                                    <span class="check-mark">✓</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <span>Más confianza y credibilidad</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap icon-green">
+                                    <span class="check-mark">✓</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+                                </div>
+                                <span>Clientes que te encuentran en Google</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap icon-green">
+                                    <span class="check-mark">✓</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <span>Disponible para tus clientes 24/7</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer de la Tarjeta -->
+                <div class="impacto-footer">
+                    <p class="footer-msg">Tu página web trabaja para tu negocio <strong>24/7</strong></p>
+                    <a href="#contacto" class="btn-shimmer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Solicitar mi sitio web
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+      <!-- FAQ Section: Split-Panel Design -->
+    <section id="faq" class="faq">
+        <div class="container section-header text-center">
+            <h2 class="section-subtitle mx-auto text-muted mb-2">Preguntas Frecuentes</h2>
+            <h2 class="section-title">Resolvemos tus dudas de forma clara</h2>
+        </div>
+        
+        <div class="container">
+            <div class="faq-split-wrapper glass-panel">
+                <!-- Left Side: Questions Navigation -->
+                <div class="faq-nav">
+                    <button class="faq-nav-item active" data-index="0">
+                        <span class="nav-dot"></span>
+                        ¿Cuánto tarda una página web?
+                    </button>
+                    <button class="faq-nav-item" data-index="1">
+                        <span class="nav-dot"></span>
+                        ¿Cuánto cuesta una página web?
+                    </button>
+                    <button class="faq-nav-item" data-index="2">
+                        <span class="nav-dot"></span>
+                        ¿La página se verá bien en celular?
+                    </button>
+                    <button class="faq-nav-item" data-index="3">
+                        <span class="nav-dot"></span>
+                        ¿Mi página aparecerá en Google?
+                    </button>
+                    <button class="faq-nav-item" data-index="4">
+                        <span class="nav-dot"></span>
+                        ¿Se puede actualizar el sitio después?
+                    </button>
+                    <button class="faq-nav-item" data-index="5">
+                        <span class="nav-dot"></span>
+                        ¿Qué necesito para empezar?
+                    </button>
+                </div>
+
+                <!-- Right Side: Answer Stage -->
+                <div class="faq-display">
+                    <div id="faq-answer-container" class="faq-answer-stage">
+                        <!-- Q1 -->
+                        <div class="faq-answer-content active" data-content="0">
+                            <h3>¿Cuánto tarda una página web?</h3>
+                            <p>El tiempo puede variar según el tipo de sitio que necesites, pero normalmente una página web profesional puede estar lista entre <strong>5 y 15 días hábiles</strong>.</p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                        <!-- Q2 -->
+                        <div class="faq-answer-content" data-content="1">
+                            <h3>¿Cuánto cuesta una página web?</h3>
+                            <p>El costo depende del tipo de sitio web que necesites. Tenemos opciones desde páginas informativas hasta sitios más completos para negocios. <strong>Contáctanos y te daremos una propuesta personalizada.</strong></p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                        <!-- Q3 -->
+                        <div class="faq-answer-content" data-content="2">
+                            <h3>¿La página se verá bien en celular?</h3>
+                            <p><strong>Sí.</strong> Todas nuestras páginas web son responsivas, lo que significa que se adaptan perfectamente a celulares, tablets y computadoras.</p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                        <!-- Q4 -->
+                        <div class="faq-answer-content" data-content="3">
+                            <h3>¿Mi página aparecerá en Google?</h3>
+                            <p><strong>Sí.</strong> Configuramos tu sitio para que pueda aparecer en Google y ser encontrado por tus clientes cuando busquen servicios relacionados con tu negocio.</p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                        <!-- Q5 -->
+                        <div class="faq-answer-content" data-content="4">
+                            <h3>¿Se puede actualizar el sitio después?</h3>
+                            <p><strong>Sí.</strong> Tu página web puede actualizarse en cualquier momento para agregar nuevos servicios, imágenes o información de tu negocio.</p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                        <!-- Q6 -->
+                        <div class="faq-answer-content" data-content="5">
+                            <h3>¿Qué necesito para empezar?</h3>
+                            <p>Solo necesitamos información básica de tu negocio como <strong>servicios, ubicación, contacto e imágenes</strong>. Nosotros nos encargamos del resto.</p>
+                            <div class="faq-accent-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto & Nosotros Section -->
+    <section id="contacto" class="contacto">
+        <div class="container grid md-grid-cols-2 gap-6 align-center">
+            <div class="contacto-info">
+                <div class="nosotros-block mb-6">
+                    <h2 class="text-accent mb-4" style="font-size: 3rem; font-weight: 800; line-height: 1.1;">Sobre Nosotros</h2>
+                    <p class="text-large text-muted">Somos un equipo enfocado en crear páginas web modernas y funcionales para emprendedores y negocios que quieren tener una presencia profesional en internet.</p>
+                </div>
+                <div>
+                    <h2 class="mb-3">Haz que tu negocio tenga presencia profesional en internet.</h2>
+                    <p class="text-muted mb-6">Déjanos tus datos y nos comunicaremos contigo a la brevedad para comenzar a diseñar el sitio ideal para ti.</p>
+                </div>
+            </div>
+            <div class="neon-contact-wrapper">
+                <div class="neon-contact-card">
+                    <div class="neon-glow-bg"></div>
+                    <h3 class="mb-2 text-white font-bold text-2xl relative z-10">Inicia tu Transformación <span class="text-accent">Digital</span></h3>
+                    <p class="text-muted text-sm mb-6 relative z-10">Ingresa tus datos y comencemos a diseñar el futuro de tu negocio.</p>
+                    
+                    <form id="contact-form" class="neon-form flex-col gap-4 relative z-10">
+                        <div class="input-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Nombre y Apellidos</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="grid md-grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <input type="tel" id="phone" required placeholder=" ">
+                                <label for="phone">Teléfono / WhatsApp</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" id="email" required placeholder=" ">
+                                <label for="email">Correo Electrónico</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="text" id="business" required placeholder=" ">
+                            <label for="business">Tipo de Negocio</label>
+                            <div class="input-line"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea id="message" placeholder=" "></textarea>
+                            <label for="message">Mensaje (Opcional)</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <button type="submit" class="neon-submit-btn mt-6">
+                            <span>Enviar Solicitud</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content grid md-grid-cols-2 gap-4 justify-between align-center">
+                <div class="footer-brand">
+                    <a href="#" class="logo mb-2">
+                        <img src="public/1.png" alt="Neuron Logo" class="footer-logo-img">
+                        <span class="logo-text">Neuron</span>
+                    </a>
+                    <p class="text-muted text-sm">Diseño de páginas web profesionales para negocios y emprendedores.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://wa.me/5659312052" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/n.euronweb/" class="btn btn-instagram" target="_blank" rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-6">
+                <p class="text-xs text-muted">© 2026 Neuron. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="circularGallery.js?v=13"></script>
+    <script src="main.js?v=15"></script>
+</body>
+</html>
